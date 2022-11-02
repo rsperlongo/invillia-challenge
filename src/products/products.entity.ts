@@ -1,8 +1,9 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { IsEnum } from 'class-validator';
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('products')
-export class ProductsEntity {
+export class ProductsEntity extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -16,8 +17,25 @@ export class ProductsEntity {
   prod_company: string;
 
   @Column({ nullable: false, type: 'varchar', length: 200 })
-  intensity: number;
-
-  @Column({ nullable: false, type: 'varchar', length: 200 })
   category: string;
+
+  @Column('decimal')
+  price: number;
+
+  @Column()
+  created_at: Date
+
+  @Column()
+  update_at: Date
+
+  @Column('int')
+  quantity: number
+
+  @Column()
+  status: ProductsStatuseEnum
+}
+
+export enum ProductsStatuseEnum {
+  AVAILABLE = 'AVAILABLE',
+  NOT_AVAILABLE = 'NOT_AVAILABLE'
 }
