@@ -1,9 +1,8 @@
 /* eslint-disable prettier/prettier */
-import { IsEnum } from 'class-validator';
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('products')
-export class ProductsEntity extends BaseEntity {
+export class ProductsEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 

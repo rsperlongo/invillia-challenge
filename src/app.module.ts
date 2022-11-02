@@ -1,3 +1,4 @@
+import { ProductsEntity } from './products/products.entity';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -16,18 +17,18 @@ import { ProductsModule } from './products/products.module';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
-        schema: 'coffee',
+        schema: 'coffee_store',
         type: 'postgres',
         host: configService.get('POSTGRES_HOST'),
         port: 5432,
         username: configService.get('POSTGRES_USER'),
         password: configService.get('POSTGRES_PASSWORD'),
         database: configService.get('POSTGRES_NAME'),
-        entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+        entities: [ProductsEntity],
         migrations: [__dirname + 'src/migrations/**/*{.ts,.js}'],
         migrationsTableName: 'products',
         migrationsRun: true,
-        synchronize: false,
+        synchronize: true,
         cli: {
           migrationsDir: 'src/migrations',
         },

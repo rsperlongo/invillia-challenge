@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { IsEnum, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { ProductsStatuseEnum } from './products.entity';
 
 export class Products {
   @IsNotEmpty()
@@ -37,5 +38,9 @@ export class Products {
   @IsNotEmpty()
   @IsNumber()
   quantity: number
+
+  @IsNotEmpty()
+  @IsEnum(ProductsStatuseEnum)
+  status: ProductsStatuseEnum;
 
 }
