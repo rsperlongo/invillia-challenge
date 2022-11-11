@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { IsEnum, IsNotEmpty, IsNumber, IsString } from 'class-validator';
-import { ProductsStatuseEnum } from './products.entity';
+import { IsDateString, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class ProductsDTO {
   @IsNotEmpty()
@@ -29,18 +28,19 @@ export class ProductsDTO {
 
   @IsNotEmpty()
   @IsString()
-  created_at: string;
+  @IsDateString()
+  created_at: Date = new Date();
 
   @IsNotEmpty()
   @IsString()
-  update_at: string;
+  @IsDateString()
+  update_at: Date;
 
   @IsNotEmpty()
   @IsNumber()
   quantity: number
 
   @IsNotEmpty()
-  @IsEnum(ProductsStatuseEnum)
-  status: ProductsStatuseEnum;
+  status: boolean;
 
 }

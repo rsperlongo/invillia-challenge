@@ -6,7 +6,7 @@ import { Body, Controller, Post } from '@nestjs/common';
 export class ProductsController {
   constructor(private productsService: ProductsService) {}
 
-  @Post()
+  @Post('create')
   async createProducts(@Body() product: ProductsEntity): Promise<any> {
     return this.productsService.createProducts(product);
   }

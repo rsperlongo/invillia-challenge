@@ -5,7 +5,7 @@ import { IProductsRepository } from '../repositories/IProductsRepository';
 export class ProductsUseCase {
   constructor(private productsRepository: IProductsRepository) {}
 
-  async getProducts(products: ProductsEntity): Promise<any> {
+  async createProducts(products: ProductsEntity): Promise<any> {
     return this.productsRepository.create(products);
   }
 }

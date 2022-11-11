@@ -7,6 +7,6 @@ export class ProductsService {
   constructor(private useCaseProducts: ProductsUseCase) {}
 
   async createProducts(products: ProductsEntity): Promise<any> {
-    return this.useCaseProducts.getProducts(products);
+    return this.useCaseProducts.createProducts(products);
   }
 }

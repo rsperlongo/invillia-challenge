@@ -31,7 +31,7 @@ export class ProductsEntity {
   quantity: number
 
   @Column()
-  status: ProductsStatuseEnum
+  status: boolean
 }
 
 export enum ProductsStatuseEnum {
