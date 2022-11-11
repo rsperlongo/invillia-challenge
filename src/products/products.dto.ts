@@ -2,7 +2,7 @@
 import { IsEnum, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 import { ProductsStatuseEnum } from './products.entity';
 
-export class Products {
+export class ProductsDTO {
   @IsNotEmpty()
   @IsNumber()
   id: number;
